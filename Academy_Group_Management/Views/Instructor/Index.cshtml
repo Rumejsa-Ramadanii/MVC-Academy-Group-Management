@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Academy_Group_Management.Models.Entities.Instructor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="d-flex my-6 mt-2 justify-content-around m-3 align-items-center">
+    <h1 style="color:wheat">Instructors</h1>
+    <a asp-action="Create" class="btn btn-primary ">  Create New </a>
+</div>
+   
+
+<table class="table table-striped bg-dark" style="font-size:20px; border:2px solid #3795BD; ">
+    <thead style="font-size:20px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Groups)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Groups)
+            </td>
+            <td>
+                <div class="btn-group gap-1">
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary p-2">Edit</a> 
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn-secondary btn">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
